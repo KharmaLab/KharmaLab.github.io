@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KharmaLab — Computational RNA biology at Concordia University</title>
+<meta name="description" content="A computational biology lab at Concordia University working on RNA inverse folding, evolutionary algorithms, and wet lab validation.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+          sans: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          ink: '#1a1a1a',
+          paper: '#fafaf7',
+          muted: '#6e6e6c',
+          faint: '#a5a5a0',
+          line: '#e5e5e0',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  body { font-feature-settings: "kern" 1, "liga" 1; }
+  .label { letter-spacing: 0.12em; font-size: 11px; text-transform: uppercase; color: #a5a5a0; font-weight: 400; }
+  a { transition: opacity 0.15s ease, color 0.15s ease; }
+</style>
+</head>
+
+<!--
+=============================================================
+  KharmaLab — HOME / ABOUT PAGE  (index.html)
+=============================================================
+
+  How to edit this page:
+    1. Open this file in any text editor (Notepad, TextEdit, VS Code, etc.).
+    2. Find the section you want to change (use Ctrl+F / Cmd+F).
+    3. Edit only the visible text. Do NOT touch the tags themselves
+       (the things in angle brackets like <h1> or </p>).
+    4. Save the file and commit to the main branch on GitHub.
+       The website updates automatically within 1-2 minutes.
+
+  Sections on this page (in order):
+    - HERO        : the big tagline and the DNA animation
+    - RESEARCH    : the three research areas
+    - ABOUT       : the longer lab description
+    - LATEST      : pointer to the most recent publication
+    - FOOTER      : address, email, GitHub link
+
+  Editing the animation:
+    The DNA -> RNA transcription animation is pure SVG with
+    SMIL <animate> tags. To slow it down, change dur="10s" to a
+    larger number everywhere it appears. To change colors, edit
+    the stroke="#a5a5a0" and fill="#6e6e6c" values. To remove
+    the animation entirely, delete the entire <svg> block.
+=============================================================
+-->
+
+<body class="bg-paper text-ink font-sans antialiased">
+
+<div class="max-w-3xl mx-auto px-6 sm:px-8 py-10 sm:py-14">
+
+  <!-- ============ NAVIGATION (same on every page) ============ -->
+  <nav class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 mb-14 sm:mb-20">
+    <a href="/" class="font-serif text-lg font-medium hover:opacity-70">KharmaLab</a>
+    <div class="flex gap-5 sm:gap-6 text-sm text-muted">
+      <a href="/" class="text-ink">About</a>
+      <a href="/publications.html" class="hover:text-ink">Publications</a>
+      <a href="/projects.html" class="hover:text-ink">Projects</a>
+      <a href="/people.html" class="hover:text-ink">People</a>
+    </div>
+  </nav>
+
+
+  <!-- ============ HERO ============ -->
+  <section class="grid grid-cols-1 sm:grid-cols-[1fr_120px] gap-8 sm:gap-10 items-center mb-16 sm:mb-20">
+    <div>
+      <p class="label mb-4">Concordia University · Montréal</p>
+      <h1 class="font-serif text-4xl sm:text-5xl font-medium leading-[1.1] tracking-tight mb-4">
+        Designing RNA, one fold at a time.
+      </h1>
+      <p class="text-base text-muted leading-relaxed max-w-prose">
+        A computational biology group working at the intersection of evolutionary algorithms, structure prediction, and wet lab validation.
+      </p>
+    </div>
+
+    <!-- DNA -> RNA transcription animation. Loops every 10s. -->
+    <div class="flex justify-center sm:justify-end">
+      <svg viewBox="0 0 100 100" class="w-24 sm:w-full sm:max-w-[110px]" aria-hidden="true">
+        <g stroke="#a5a5a0" stroke-width="0.5" stroke-dasharray="1.2 1.4">
+          <animate attributeName="opacity" values="1;1;0;0;1;1" keyTimes="0;0.15;0.25;0.75;0.85;1" dur="10s" repeatCount="indefinite"/>
+          <line x1="15" y1="42" x2="15" y2="58"/>
+          <line x1="29" y1="42" x2="29" y2="58"/>
+          <line x1="43" y1="42" x2="43" y2="58"/>
+          <line x1="57" y1="42" x2="57" y2="58"/>
+          <line x1="71" y1="42" x2="71" y2="58"/>
+          <line x1="85" y1="42" x2="85" y2="58"/>
+        </g>
+        <polyline fill="none" stroke="#a5a5a0" stroke-width="0.6" points="15,42 29,42 43,42 57,42 71,42 85,42">
+          <animate attributeName="points" values="15,42 29,42 43,42 57,42 71,42 85,42; 15,42 29,42 43,42 57,42 71,42 85,42; 15,32 29,20 43,13 57,13 71,20 85,32; 15,32 29,20 43,13 57,13 71,20 85,32; 15,42 29,42 43,42 57,42 71,42 85,42" keyTimes="0;0.2;0.5;0.7;1" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" dur="10s" repeatCount="indefinite"/>
+        </polyline>
+        <polyline fill="none" stroke="#a5a5a0" stroke-width="0.6" points="15,58 29,58 43,58 57,58 71,58 85,58"/>
+        <g fill="#6e6e6c">
+          <circle r="2.5" cx="15" cy="42"><animate attributeName="cy" values="42;42;32;32;42" keyTimes="0;0.2;0.5;0.7;1" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" dur="10s" repeatCount="indefinite"/></circle>
+          <circle r="2.5" cx="29" cy="42"><animate attributeName="cy" values="42;42;20;20;42" keyTimes="0;0.2;0.5;0.7;1" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" dur="10s" repeatCount="indefinite"/></circle>
+          <circle r="2.5" cx="43" cy="42"><animate attributeName="cy" values="42;42;13;13;42" keyTimes="0;0.2;0.5;0.7;1" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" dur="10s" repeatCount="indefinite"/></circle>
+          <circle r="2.5" cx="57" cy="42"><animate attributeName="cy" values="42;42;13;13;42" keyTimes="0;0.2;0.5;0.7;1" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" dur="10s" repeatCount="indefinite"/></circle>
+          <circle r="2.5" cx="71" cy="42"><animate attributeName="cy" values="42;42;20;20;42" keyTimes="0;0.2;0.5;0.7;1" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" dur="10s" repeatCount="indefinite"/></circle>
+          <circle r="2.5" cx="85" cy="42"><animate attributeName="cy" values="42;42;32;32;42" keyTimes="0;0.2;0.5;0.7;1" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1" dur="10s" repeatCount="indefinite"/></circle>
+          <circle r="2.5" cx="15" cy="58"/>
+          <circle r="2.5" cx="29" cy="58"/>
+          <circle r="2.5" cx="43" cy="58"/>
+          <circle r="2.5" cx="57" cy="58"/>
+          <circle r="2.5" cx="71" cy="58"/>
+          <circle r="2.5" cx="85" cy="58"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <hr class="border-t border-line my-10">
+
+
+  <!-- ============ RESEARCH (three focus areas) ============ -->
+  <!-- To change a research area: edit the title and the description below.
+       To add a fourth area: copy one <div>...</div> block and edit. -->
+  <section class="mb-16">
+    <p class="label mb-5">Research</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div>
+        <h3 class="text-sm font-medium mb-2">Inverse folding</h3>
+        <p class="text-sm text-muted leading-relaxed">Evolutionary algorithms for RNA sequence design with multi-tool consensus.</p>
+      </div>
+      <div>
+        <h3 class="text-sm font-medium mb-2">Fluorescent aptamers</h3>
+        <p class="text-sm text-muted leading-relaxed">DNA reporters built on three-way junction architectures.</p>
+      </div>
+      <div>
+        <h3 class="text-sm font-medium mb-2">Therapeutics</h3>
+        <p class="text-sm text-muted leading-relaxed">Ribozyme design for HTT mRNA and related disease targets.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ ABOUT (longer description) ============ -->
+  <!-- Replace the bracketed [PLACEHOLDER] paragraphs with the actual lab story.
+       Aim for 2-3 short paragraphs. Keep it concrete: what problems, what tools,
+       what differentiates this lab. Avoid abstract mission-statement phrasing. -->
+  <section class="mb-16">
+    <p class="label mb-5">About the lab</p>
+    <div class="space-y-4 leading-relaxed max-w-prose">
+      <p>
+        [LAB DESCRIPTION — paragraph 1. Roughly 2-4 sentences describing what the lab does and why. Example: "KharmaLab develops computational methods for designing functional RNA molecules. We combine evolutionary search, deep-learning structure predictors, and experimental validation to..."]
+      </p>
+      <p>
+        [LAB DESCRIPTION — paragraph 2. Roughly 2-4 sentences describing the approach or philosophy. Example: "Our work sits between three communities — RNA biology, evolutionary computation, and synthetic biology. We believe..."]
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============ LATEST publication ============ -->
+  <!-- This is the single most recent paper, linked to the Publications page.
+       To update: replace the title and venue line below. -->
+  <section class="mb-16">
+    <p class="label mb-3">Latest</p>
+    <div class="border-t border-line pt-4">
+      <a href="/publications.html" class="flex justify-between items-start gap-4 hover:opacity-60">
+        <div class="flex-1">
+          <p class="text-sm mb-1 leading-snug">A modular multi-tool evolutionary algorithm framework for RNA inverse folding</p>
+          <p class="text-xs text-muted">IEEE WCCI 2026 · Maastricht · June</p>
+        </div>
+        <span class="text-sm text-faint pt-0.5">→</span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ============ FOOTER (same on every page) ============ -->
+  <footer class="border-t border-line pt-8 mt-20 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-muted">
+    <div>
+      <p class="font-medium text-ink mb-1">KharmaLab</p>
+      <p>Department of Electrical and Computer Engineering<br>Concordia University, Montréal QC</p>
+    </div>
+    <div class="sm:text-right">
+      <p><a href="mailto:kharma@protonmail.com" class="hover:text-ink">kharma@protonmail.com</a></p>
+      <p class="mt-2"><a href="https://github.com/KharmaLab" class="hover:text-ink">github.com/KharmaLab</a></p>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

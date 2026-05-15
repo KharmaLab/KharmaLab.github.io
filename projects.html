@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects · KharmaLab</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+          sans: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          ink: '#1a1a1a',
+          paper: '#fafaf7',
+          muted: '#6e6e6c',
+          faint: '#a5a5a0',
+          line: '#e5e5e0',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  body { font-feature-settings: "kern" 1, "liga" 1; }
+  .label { letter-spacing: 0.12em; font-size: 11px; text-transform: uppercase; color: #a5a5a0; font-weight: 400; }
+  a { transition: opacity 0.15s ease, color 0.15s ease; }
+</style>
+</head>
+
+<!--
+=============================================================
+  KharmaLab — PROJECTS PAGE  (projects.html)
+=============================================================
+
+  Each project is one <article> block.
+
+  How to add a new project:
+    1. Copy any <article>...</article> block below.
+    2. Replace these fields:
+         - title         (the heading line)
+         - description   (2-4 sentences describing the project)
+         - status meta   (Active / Completed / On hold etc.)
+         - lead meta     (the lab member leading the project)
+         - links         (GitHub, paper, demo — remove what doesn't apply)
+
+  The FIRST project is filled in as a worked example.
+  Everything else is [PLACEHOLDER]. Copy the example's structure.
+
+  Order matters — put the most active / important projects first.
+  Completed-but-still-relevant projects can sit lower on the page.
+=============================================================
+-->
+
+<body class="bg-paper text-ink font-sans antialiased">
+
+<div class="max-w-3xl mx-auto px-6 sm:px-8 py-10 sm:py-14">
+
+  <!-- NAVIGATION -->
+  <nav class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 mb-14 sm:mb-20">
+    <a href="/" class="font-serif text-lg font-medium hover:opacity-70">KharmaLab</a>
+    <div class="flex gap-5 sm:gap-6 text-sm text-muted">
+      <a href="/" class="hover:text-ink">About</a>
+      <a href="/publications.html" class="hover:text-ink">Publications</a>
+      <a href="/projects.html" class="text-ink">Projects</a>
+      <a href="/people.html" class="hover:text-ink">People</a>
+    </div>
+  </nav>
+
+
+  <!-- PAGE HEADER -->
+  <header class="mb-12 sm:mb-16">
+    <p class="label mb-3">Projects</p>
+    <h1 class="font-serif text-3xl sm:text-4xl font-medium leading-tight tracking-tight mb-4">
+      Active and recent work
+    </h1>
+    <p class="text-base text-muted leading-relaxed max-w-prose">
+      A snapshot of what the lab is currently building, what we've recently shipped, and what's coming next.
+    </p>
+  </header>
+
+
+  <!-- ============ PROJECTS LIST ============ -->
+
+  <!-- WORKED EXAMPLE: this is what a complete project entry looks like.
+       Use it as the template for every other entry on this page. -->
+  <article class="border-t border-line py-7">
+    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+      <h3 class="font-serif text-xl font-medium leading-tight">
+        Modular EA framework for RNA inverse folding
+      </h3>
+      <p class="text-xs text-faint font-mono shrink-0">Active</p>
+    </div>
+    <p class="text-sm text-muted leading-relaxed mb-4 max-w-prose">
+      An evolutionary algorithm operating on an island model with multi-tool fitness consensus
+      (ViennaRNA, MXFold2, EternaFold). Designed to escape single-predictor bias by requiring
+      agreement across folding tools. Reaches ~81% solve rate on the Eterna100 benchmark.
+    </p>
+    <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted mb-3">
+      <span><span class="text-faint">Lead</span> · [STUDENT NAME]</span>
+      <span><span class="text-faint">Stack</span> · Python, ViennaRNA, PyTorch</span>
+      <span><span class="text-faint">Compute</span> · Alliance Canada / Narval</span>
+    </div>
+    <p class="text-sm flex gap-4">
+      <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">GitHub</a>
+      <a href="/publications.html" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">Paper</a>
+    </p>
+  </article>
+
+
+  <article class="border-t border-line py-7">
+    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+      <h3 class="font-serif text-xl font-medium leading-tight">
+        [PROJECT TITLE]
+      </h3>
+      <p class="text-xs text-faint font-mono shrink-0">[Active / Completed / On hold]</p>
+    </div>
+    <p class="text-sm text-muted leading-relaxed mb-4 max-w-prose">
+      [PROJECT DESCRIPTION — 2-4 sentences. What problem does this project tackle?
+      What's the approach? What's the current state or key result?]
+    </p>
+    <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted mb-3">
+      <span><span class="text-faint">Lead</span> · [LEAD NAME]</span>
+      <span><span class="text-faint">Stack</span> · [TOOLS, LIBRARIES, LANGUAGES]</span>
+    </div>
+    <p class="text-sm flex gap-4">
+      <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">GitHub</a>
+    </p>
+  </article>
+
+
+  <article class="border-t border-line py-7">
+    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+      <h3 class="font-serif text-xl font-medium leading-tight">
+        [PROJECT TITLE]
+      </h3>
+      <p class="text-xs text-faint font-mono shrink-0">[STATUS]</p>
+    </div>
+    <p class="text-sm text-muted leading-relaxed mb-4 max-w-prose">
+      [PROJECT DESCRIPTION]
+    </p>
+    <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted mb-3">
+      <span><span class="text-faint">Lead</span> · [LEAD NAME]</span>
+    </div>
+  </article>
+
+
+  <article class="border-t border-line py-7 mb-12">
+    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+      <h3 class="font-serif text-xl font-medium leading-tight">
+        [PROJECT TITLE]
+      </h3>
+      <p class="text-xs text-faint font-mono shrink-0">[STATUS]</p>
+    </div>
+    <p class="text-sm text-muted leading-relaxed mb-4 max-w-prose">
+      [PROJECT DESCRIPTION]
+    </p>
+    <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted mb-3">
+      <span><span class="text-faint">Lead</span> · [LEAD NAME]</span>
+    </div>
+  </article>
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-line pt-8 mt-20 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-muted">
+    <div>
+      <p class="font-medium text-ink mb-1">KharmaLab</p>
+      <p>Department of Electrical and Computer Engineering<br>Concordia University, Montréal QC</p>
+    </div>
+    <div class="sm:text-right">
+      <p><a href="mailto:kharma@protonmail.com" class="hover:text-ink">kharma@protonmail.com</a></p>
+      <p class="mt-2"><a href="https://github.com/KharmaLab" class="hover:text-ink">github.com/KharmaLab</a></p>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

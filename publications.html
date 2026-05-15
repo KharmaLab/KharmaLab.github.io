@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications · KharmaLab</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+          sans: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          ink: '#1a1a1a',
+          paper: '#fafaf7',
+          muted: '#6e6e6c',
+          faint: '#a5a5a0',
+          line: '#e5e5e0',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  body { font-feature-settings: "kern" 1, "liga" 1; }
+  .label { letter-spacing: 0.12em; font-size: 11px; text-transform: uppercase; color: #a5a5a0; font-weight: 400; }
+  a { transition: opacity 0.15s ease, color 0.15s ease; }
+</style>
+</head>
+
+<!--
+=============================================================
+  KharmaLab — PUBLICATIONS PAGE  (publications.html)
+=============================================================
+
+  How to add a new publication:
+    1. Find the right year section (or copy a whole <section> block
+       and change the year label if you're starting a new year).
+    2. Copy an <article>...</article> block.
+    3. Replace the four fields:
+         - title       (the line in font-medium)
+         - authors     (comma-separated list, bold the lab member's name)
+         - venue       (journal/conference name, location, month/year)
+         - links       (PDF, code, arXiv — remove the ones that don't apply)
+    4. Save and commit. Done.
+
+  The FIRST entry under 2026 is filled in as a worked example.
+  Everything else is [PLACEHOLDER] — copy the example's structure.
+
+  To bold an author name (e.g., a lab member): wrap the name in
+    <span class="text-ink font-medium">Name Here</span>
+  This makes the lab member stand out from co-authors.
+=============================================================
+-->
+
+<body class="bg-paper text-ink font-sans antialiased">
+
+<div class="max-w-3xl mx-auto px-6 sm:px-8 py-10 sm:py-14">
+
+  <!-- NAVIGATION -->
+  <nav class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 mb-14 sm:mb-20">
+    <a href="/" class="font-serif text-lg font-medium hover:opacity-70">KharmaLab</a>
+    <div class="flex gap-5 sm:gap-6 text-sm text-muted">
+      <a href="/" class="hover:text-ink">About</a>
+      <a href="/publications.html" class="text-ink">Publications</a>
+      <a href="/projects.html" class="hover:text-ink">Projects</a>
+      <a href="/people.html" class="hover:text-ink">People</a>
+    </div>
+  </nav>
+
+
+  <!-- PAGE HEADER -->
+  <header class="mb-12 sm:mb-16">
+    <p class="label mb-3">Publications</p>
+    <h1 class="font-serif text-3xl sm:text-4xl font-medium leading-tight tracking-tight mb-4">
+      Selected work
+    </h1>
+    <p class="text-base text-muted leading-relaxed max-w-prose">
+      Peer-reviewed papers, conference contributions, and preprints. Names of lab members are emphasised.
+    </p>
+  </header>
+
+
+  <!-- ============ 2026 ============ -->
+  <section class="mb-12">
+    <p class="label mb-4">2026</p>
+
+    <!-- WORKED EXAMPLE: this is what a complete publication entry looks like.
+         Use it as the template for every other entry on this page. -->
+    <article class="border-t border-line py-5">
+      <h3 class="text-base font-medium leading-snug mb-2">
+        A modular multi-tool evolutionary algorithm framework for RNA inverse folding
+      </h3>
+      <p class="text-sm text-muted leading-relaxed mb-1">
+        <span class="text-ink font-medium">[First Author]</span>, [Co-author], [PI Name]
+      </p>
+      <p class="text-sm text-muted mb-3">
+        IEEE Congress on Evolutionary Computation (CEC) · WCCI 2026 · Maastricht · June 2026
+      </p>
+      <p class="text-sm flex gap-4">
+        <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">PDF</a>
+        <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">Code</a>
+        <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">arXiv</a>
+      </p>
+    </article>
+
+  </section>
+
+
+  <!-- ============ 2025 ============ -->
+  <section class="mb-12">
+    <p class="label mb-4">2025</p>
+
+    <article class="border-t border-line py-5">
+      <h3 class="text-base font-medium leading-snug mb-2">
+        [PAPER TITLE]
+      </h3>
+      <p class="text-sm text-muted leading-relaxed mb-1">
+        [AUTHORS — comma-separated. Wrap lab members in &lt;span class="text-ink font-medium"&gt;Name&lt;/span&gt;]
+      </p>
+      <p class="text-sm text-muted mb-3">
+        [VENUE, LOCATION, MONTH YEAR]
+      </p>
+      <p class="text-sm flex gap-4">
+        <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">PDF</a>
+        <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">Code</a>
+      </p>
+    </article>
+
+    <article class="border-t border-line py-5">
+      <h3 class="text-base font-medium leading-snug mb-2">
+        [PAPER TITLE]
+      </h3>
+      <p class="text-sm text-muted leading-relaxed mb-1">
+        [AUTHORS]
+      </p>
+      <p class="text-sm text-muted mb-3">
+        [VENUE, MONTH YEAR]
+      </p>
+      <p class="text-sm flex gap-4">
+        <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">PDF</a>
+      </p>
+    </article>
+
+  </section>
+
+
+  <!-- ============ 2024 ============ -->
+  <section class="mb-12">
+    <p class="label mb-4">2024</p>
+
+    <article class="border-t border-line py-5">
+      <h3 class="text-base font-medium leading-snug mb-2">
+        [PAPER TITLE]
+      </h3>
+      <p class="text-sm text-muted leading-relaxed mb-1">
+        [AUTHORS]
+      </p>
+      <p class="text-sm text-muted mb-3">
+        [VENUE, MONTH YEAR]
+      </p>
+      <p class="text-sm flex gap-4">
+        <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">PDF</a>
+      </p>
+    </article>
+
+  </section>
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-line pt-8 mt-20 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-muted">
+    <div>
+      <p class="font-medium text-ink mb-1">KharmaLab</p>
+      <p>Department of Electrical and Computer Engineering<br>Concordia University, Montréal QC</p>
+    </div>
+    <div class="sm:text-right">
+      <p><a href="mailto:kharma@protonmail.com" class="hover:text-ink">kharma@protonmail.com</a></p>
+      <p class="mt-2"><a href="https://github.com/KharmaLab" class="hover:text-ink">github.com/KharmaLab</a></p>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

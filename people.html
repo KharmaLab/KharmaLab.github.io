@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People · KharmaLab</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+          sans: ['"IBM Plex Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          ink: '#1a1a1a',
+          paper: '#fafaf7',
+          muted: '#6e6e6c',
+          faint: '#a5a5a0',
+          line: '#e5e5e0',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  body { font-feature-settings: "kern" 1, "liga" 1; }
+  .label { letter-spacing: 0.12em; font-size: 11px; text-transform: uppercase; color: #a5a5a0; font-weight: 400; }
+  a { transition: opacity 0.15s ease, color 0.15s ease; }
+</style>
+</head>
+
+<!--
+=============================================================
+  KharmaLab — PEOPLE PAGE  (people.html)
+=============================================================
+
+  This page has THREE sections:
+    1. PRINCIPAL INVESTIGATOR (the PI card — larger, more detail)
+    2. CURRENT MEMBERS         (students, postdocs, collaborators)
+    3. ALUMNI                  (former members, optional)
+
+  HOW TO READ THIS FILE:
+    The FIRST card in section 1 (PI) and the FIRST card in section 2
+    (Current members) are filled in as worked examples — they show
+    you the exact tone, length, and fields to use. Everything else
+    is bracketed [PLACEHOLDER] text that you replace.
+
+  HOW TO ADD A NEW MEMBER:
+    1. Find the "Current members" section below.
+    2. Copy any existing <article>...</article> block.
+    3. Replace the fields (name, role, year, bio, links).
+    4. The avatar is a plain grey circle by default — to add a
+       real photo, replace the <div class="...rounded-full..."> with:
+         <img src="/photos/firstname-lastname.jpg"
+              alt="First Last"
+              class="w-20 h-20 rounded-full object-cover shrink-0">
+       and put the image file in a /photos/ folder in the repo.
+
+  ABOUT THE PI BIO EXAMPLE:
+    The PI bio below is a TEMPLATE with realistic phrasing but
+    generic content. Replace it with the actual bio — keep roughly
+    the same length and shape (2-3 sentences each paragraph).
+=============================================================
+-->
+
+<body class="bg-paper text-ink font-sans antialiased">
+
+<div class="max-w-3xl mx-auto px-6 sm:px-8 py-10 sm:py-14">
+
+  <!-- NAVIGATION -->
+  <nav class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 mb-14 sm:mb-20">
+    <a href="/" class="font-serif text-lg font-medium hover:opacity-70">KharmaLab</a>
+    <div class="flex gap-5 sm:gap-6 text-sm text-muted">
+      <a href="/" class="hover:text-ink">About</a>
+      <a href="/publications.html" class="hover:text-ink">Publications</a>
+      <a href="/projects.html" class="hover:text-ink">Projects</a>
+      <a href="/people.html" class="text-ink">People</a>
+    </div>
+  </nav>
+
+
+  <!-- PAGE HEADER -->
+  <header class="mb-12 sm:mb-16">
+    <p class="label mb-3">People</p>
+    <h1 class="font-serif text-3xl sm:text-4xl font-medium leading-tight tracking-tight mb-4">
+      The team
+    </h1>
+    <p class="text-base text-muted leading-relaxed max-w-prose">
+      A small group of computational scientists, wet-lab experimentalists, and students working across disciplines on RNA design and validation.
+    </p>
+  </header>
+
+
+  <!-- ============ PRINCIPAL INVESTIGATOR ============ -->
+  <section class="mb-16">
+    <p class="label mb-6">Principal investigator</p>
+
+    <!-- WORKED EXAMPLE: this is the full template for a PI card.
+         Replace [PI NAME] etc. with the actual content. -->
+    <article class="grid grid-cols-1 sm:grid-cols-[100px_1fr] gap-5 sm:gap-8 border-t border-line pt-7">
+      <!-- Avatar: replace this div with an <img> tag to use a real photo (see file header). -->
+      <div class="w-24 h-24 sm:w-[100px] sm:h-[100px] rounded-full bg-line shrink-0"></div>
+
+      <div>
+        <h3 class="font-serif text-2xl font-medium leading-tight mb-1">
+          Dr. Kharma Nawwaf
+        </h3>
+        <p class="text-sm text-muted mb-5">
+          Principal Investigator · Professor, Department of Electrical and Computer Engineering, Concordia University
+        </p>
+
+        <div class="space-y-3 text-sm leading-relaxed max-w-prose mb-5">
+          <p>
+            Dr. Nawwaf's research lies at the intersection of evolutionary computation and molecular biology, with a particular focus on the design of functional RNA molecules. The lab combines algorithmic methods — evolutionary search, machine-learning structure predictors, multi-tool consensus — with experimental validation through close collaborations with wet-lab partners.
+          </p>
+          <p>
+            Before joining Concordia, Dr. Nawwaf [PRIOR APPOINTMENTS — e.g. held positions at…, or completed postdoctoral work at…]. Earlier training: [PhD INSTITUTION, YEAR], [MSc INSTITUTION], [BSc INSTITUTION].
+          </p>
+          <p>
+            Outside the lab, Dr. Nawwaf is interested in [PERSONAL INTERESTS — 1-2 short items, optional].
+          </p>
+        </div>
+
+        <p class="text-sm flex flex-wrap gap-x-5 gap-y-1">
+          <a href="mailto:kharma@protonmail.com" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">Email</a>
+          <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">Google Scholar</a>
+          <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">ORCID</a>
+          <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">CV</a>
+        </p>
+      </div>
+    </article>
+  </section>
+
+
+  <!-- ============ CURRENT MEMBERS ============ -->
+  <section class="mb-16">
+    <p class="label mb-6">Current members</p>
+
+    <!-- WORKED EXAMPLE: this is what a student/member card looks like.
+         Use this structure for every member entry. -->
+    <article class="grid grid-cols-[60px_1fr] sm:grid-cols-[80px_1fr] gap-4 sm:gap-6 border-t border-line pt-6 pb-6">
+      <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-line shrink-0"></div>
+      <div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-3 mb-2">
+          <h3 class="font-serif text-lg font-medium leading-tight">
+            [MEMBER NAME]
+          </h3>
+          <p class="text-xs text-faint font-mono">MSc student · 2024–present</p>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-3 max-w-prose">
+          Works on the evolutionary algorithm framework for RNA inverse folding, including multi-tool fitness consensus and large-scale benchmarking on the Eterna100 dataset. Co-authoring the lab's WCCI 2026 paper.
+        </p>
+        <p class="text-sm flex flex-wrap gap-x-5 gap-y-1">
+          <a href="mailto:[MEMBER EMAIL]" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">Email</a>
+          <a href="#" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">GitHub</a>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- PLACEHOLDER MEMBER — copy the structure from the example above and fill in. -->
+    <article class="grid grid-cols-[60px_1fr] sm:grid-cols-[80px_1fr] gap-4 sm:gap-6 border-t border-line pt-6 pb-6">
+      <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-line shrink-0"></div>
+      <div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-3 mb-2">
+          <h3 class="font-serif text-lg font-medium leading-tight">
+            [MEMBER NAME]
+          </h3>
+          <p class="text-xs text-faint font-mono">[ROLE — e.g. PhD student / Postdoc / Visiting researcher] · [START YEAR]–present</p>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-3 max-w-prose">
+          [SHORT BIO — 1-2 sentences on what this person works on in the lab.]
+        </p>
+        <p class="text-sm flex flex-wrap gap-x-5 gap-y-1">
+          <a href="mailto:[MEMBER EMAIL]" class="text-ink hover:opacity-60 underline underline-offset-4 decoration-line">Email</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="grid grid-cols-[60px_1fr] sm:grid-cols-[80px_1fr] gap-4 sm:gap-6 border-t border-line pt-6 pb-6">
+      <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-line shrink-0"></div>
+      <div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-3 mb-2">
+          <h3 class="font-serif text-lg font-medium leading-tight">
+            [MEMBER NAME]
+          </h3>
+          <p class="text-xs text-faint font-mono">[ROLE] · [YEARS]</p>
+        </div>
+        <p class="text-sm text-muted leading-relaxed mb-3 max-w-prose">
+          [SHORT BIO]
+        </p>
+      </div>
+    </article>
+
+  </section>
+
+
+  <!-- ============ ALUMNI (optional) ============ -->
+  <!-- Delete this whole section if not needed. Otherwise list past members
+       in a more compact format — one line each. -->
+  <section class="mb-12">
+    <p class="label mb-6">Alumni</p>
+
+    <ul class="text-sm space-y-2.5 border-t border-line pt-5">
+      <li class="flex flex-col sm:flex-row sm:items-baseline sm:gap-3 text-muted">
+        <span class="text-ink font-medium">[ALUMNI NAME]</span>
+        <span class="text-xs text-faint font-mono">[ROLE] · [YEARS]</span>
+        <span class="sm:ml-auto">Now at <span class="text-ink">[CURRENT AFFILIATION]</span></span>
+      </li>
+      <li class="flex flex-col sm:flex-row sm:items-baseline sm:gap-3 text-muted">
+        <span class="text-ink font-medium">[ALUMNI NAME]</span>
+        <span class="text-xs text-faint font-mono">[ROLE] · [YEARS]</span>
+        <span class="sm:ml-auto">Now at <span class="text-ink">[CURRENT AFFILIATION]</span></span>
+      </li>
+    </ul>
+  </section>
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-line pt-8 mt-20 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-muted">
+    <div>
+      <p class="font-medium text-ink mb-1">KharmaLab</p>
+      <p>Department of Electrical and Computer Engineering<br>Concordia University, Montréal QC</p>
+    </div>
+    <div class="sm:text-right">
+      <p><a href="mailto:kharma@protonmail.com" class="hover:text-ink">kharma@protonmail.com</a></p>
+      <p class="mt-2"><a href="https://github.com/KharmaLab" class="hover:text-ink">github.com/KharmaLab</a></p>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
