@@ -9,9 +9,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
 
+<!-- Set theme before render to avoid flash -->
+<script>
+  (function() {
+    try {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch(e) {}
+  })();
+</script>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
+    darkMode: 'class',
     theme: {
       extend: {
         fontFamily: {
@@ -20,11 +34,11 @@
           mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
         },
         colors: {
-          ink: '#1a1a1a',
-          paper: '#fafaf7',
-          muted: '#6e6e6c',
-          faint: '#a5a5a0',
-          line: '#e5e5e0',
+          ink: 'var(--ink)',
+          paper: 'var(--paper)',
+          muted: 'var(--muted)',
+          faint: 'var(--faint)',
+          line: 'var(--line)',
         },
       }
     }
@@ -32,9 +46,26 @@
 </script>
 
 <style>
-  body { font-feature-settings: "kern" 1, "liga" 1; }
-  .label { letter-spacing: 0.12em; font-size: 11px; text-transform: uppercase; color: #a5a5a0; font-weight: 400; }
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f0ebe0;
+    --muted: #6e6e6c;
+    --faint: #a5a5a0;
+    --line: #e5e5e0;
+  }
+  html.dark {
+    --ink: #e8e3d8;
+    --paper: #1a1815;
+    --muted: #9a958a;
+    --faint: #5a554c;
+    --line: #2c2820;
+  }
+  body { font-feature-settings: "kern" 1, "liga" 1; background: var(--paper); color: var(--ink); }
+  .label { letter-spacing: 0.12em; font-size: 11px; text-transform: uppercase; color: var(--faint); font-weight: 400; }
   a { transition: opacity 0.15s ease, color 0.15s ease; }
+  html:not(.dark) .icon-sun { display: none; }
+  html.dark .icon-moon { display: none; }
+  #theme-toggle { cursor: pointer; }
 </style>
 </head>
 
@@ -64,16 +95,25 @@
 
 <body class="bg-paper text-ink font-sans antialiased">
 
-<div class="max-w-3xl mx-auto px-6 sm:px-8 py-10 sm:py-14">
+<div class="max-w-5xl mx-auto px-6 sm:px-8 py-10 sm:py-14">
 
   <!-- NAVIGATION -->
   <nav class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 mb-14 sm:mb-20">
     <a href="/" class="font-serif text-lg font-medium hover:opacity-70">KharmaLab</a>
-    <div class="flex gap-5 sm:gap-6 text-sm text-muted">
+    <div class="flex gap-5 sm:gap-6 text-sm text-muted items-center">
       <a href="/" class="hover:text-ink">About</a>
       <a href="/publications.html" class="hover:text-ink">Publications</a>
       <a href="/projects.html" class="text-ink">Projects</a>
       <a href="/people.html" class="hover:text-ink">People</a>
+      <button id="theme-toggle" aria-label="Toggle theme" class="text-muted hover:text-ink">
+        <svg class="icon-sun w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg class="icon-moon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
     </div>
   </nav>
 
@@ -184,6 +224,13 @@
   </footer>
 
 </div>
+
+<script>
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    var isDark = document.documentElement.classList.toggle('dark');
+    try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch(e) {}
+  });
+</script>
 
 </body>
 </html>
